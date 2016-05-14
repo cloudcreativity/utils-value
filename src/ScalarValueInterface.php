@@ -18,8 +18,6 @@
 
 namespace CloudCreativity\Utils\Value;
 
-use CloudCreativity\Utils\Exception\InvalidValueException;
-
 interface ScalarValueInterface extends ValueInterface
 {
 

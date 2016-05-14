@@ -1,6 +1,6 @@
 {
     "name": "cloudcreativity/utils-value",
-    "description": "Library to handle standard scalar values and defined array values.",
+    "description": "Library to handle standard scalar values and defined array values in PHP.",
     "keywords": [
         "cloudcreativity",
         "value",
