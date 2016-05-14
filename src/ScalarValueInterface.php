@@ -39,6 +39,12 @@ interface ScalarValueInterface extends ValueInterface
     public function set($value);
 
     /**
+     * @param mixed $value
+     * @return bool
+     */
+    public function is($value);
+
+    /**
      * @param $value
      * @return bool
      */

@@ -67,6 +67,14 @@ abstract class AbstractScalarValue implements ScalarValueInterface
     }
 
     /**
+     * @return bool
+     */
+    public function is($value)
+    {
+        return $this->get() === $value;
+    }
+
+    /**
      * @return mixed
      */
     public function jsonSerialize()

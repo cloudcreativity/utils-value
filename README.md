@@ -43,12 +43,12 @@ class DanceRole extends AbstractScalarValue
 
   public function isLead()
   {
-    return $this->get() === 'lead';
+    return $this->is('lead');
   }
 
   public function isFollow()
   {
-    return $this->get() === 'follow';
+    return $this->is('follow');
   }
 }
 ```

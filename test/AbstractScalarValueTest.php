@@ -45,4 +45,12 @@ class AbstractScalarValueTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException(InvalidValueException::class);
         new TestValue('foo');
     }
+
+    public function testIs()
+    {
+        $value = new TestValue(99);
+
+        $this->assertTrue($value->is(99));
+        $this->assertFalse($value->is(99.0));
+    }
 }
