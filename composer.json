@@ -23,7 +23,6 @@
     "require-dev": {
         "phpunit/phpunit": "^4.7"
     },
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "CloudCreativity\\Utils\\Value\\": "src/"
@@ -33,5 +32,11 @@
         "psr-4": {
             "CloudCreativity\\Utils\\Value\\": "test/"
         }
+    },
+    "extra": {
+      "branch-alias": {
+        "dev-master": "0.1.x-dev",
+        "dev-develop": "0.2.x-dev"
+      }
     }
 }
