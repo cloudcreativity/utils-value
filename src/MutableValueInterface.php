@@ -18,22 +18,14 @@
 
 namespace CloudCreativity\Utils\Value;
 
-final class TestValue extends AbstractValue
+interface MutableValueInterface extends ValueInterface
 {
 
     /**
-     * @inheritdoc
+     * @param mixed $value
+     * @return $this
+     * @throws ValueException
      */
-    protected function accept($value)
-    {
-        return is_string($value) && 2 < strlen($value);
-    }
+    public function set($value);
 
-    /**
-     * @inheritdoc
-     */
-    protected function useStrict()
-    {
-        return false;
-    }
 }
