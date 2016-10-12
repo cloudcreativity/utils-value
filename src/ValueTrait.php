@@ -18,21 +18,13 @@
 
 namespace CloudCreativity\Utils\Value;
 
-abstract class AbstractScalarValue implements ScalarValueInterface
+trait ValueTrait
 {
 
     /**
      * @var mixed
      */
-    private $value;
-
-    /**
-     * @param mixed $value
-     */
-    public function __construct($value = null)
-    {
-        $this->set($value);
-    }
+    protected $value;
 
     /**
      * @return string
@@ -51,19 +43,16 @@ abstract class AbstractScalarValue implements ScalarValueInterface
     }
 
     /**
-     * @param $value
-     * @return $this
-     * @throws InvalidValueException
+     * @param mixed $value
+     * @return bool
      */
-    public function set($value)
+    public function is($value)
     {
-        if (!$this->isValid($value)) {
-            throw new InvalidValueException('Expecting a valid value.');
+        if ($value instanceof ValueInterface) {
+            $value = $value->get();
         }
 
-        $this->value = $value;
-
-        return $this;
+        return $this->useStrict() ? $this->get() === $value : $this->get() == $value;
     }
 
     /**
@@ -73,4 +62,15 @@ abstract class AbstractScalarValue implements ScalarValueInterface
     {
         return $this->get();
     }
+
+    /**
+     * Should strict comparison be used for comparing values?
+     *
+     * @return bool
+     */
+    protected function useStrict()
+    {
+        return true;
+    }
+
 }

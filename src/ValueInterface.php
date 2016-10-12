@@ -23,4 +23,20 @@ use JsonSerializable;
 interface ValueInterface extends JsonSerializable
 {
 
+    /**
+     * @return string
+     */
+    public function __toString();
+
+    /**
+     * @return mixed
+     */
+    public function get();
+
+    /**
+     * @param mixed $value
+     * @return bool
+     */
+    public function is($value);
+
 }

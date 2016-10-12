@@ -18,9 +18,18 @@
 
 namespace CloudCreativity\Utils\Value;
 
-use Exception;
-
-class InvalidValueException extends Exception
+abstract class AbstractMutableValue implements MutableValueInterface
 {
+
+    use MutableValueTrait;
+
+    /**
+     * @param mixed $value
+     * @throws ValueException
+     */
+    public function __construct($value = null)
+    {
+        $this->set($value);
+    }
 
 }

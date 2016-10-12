@@ -18,22 +18,30 @@
 
 namespace CloudCreativity\Utils\Value;
 
-interface ArrayValueInterface extends ValueInterface
+abstract class AbstractValue implements ValueInterface
 {
 
-    /**
-     *  @param array $input
-     *  @return $this
-     */
-    public function exchangeArray(array $input);
+    use ValueTrait;
 
     /**
-     * @return array
+     * Is the supplied scalar value acceptable for this value class?
+     *
+     * @param $value
+     * @return mixed
      */
-    public function toArray();
+    abstract protected function accept($value);
 
     /**
-     * @return bool
+     * AbstractValue constructor.
+     * @param $value
+     * @throws ValueException
      */
-    public function isComplete();
+    public function __construct($value)
+    {
+        if (!$this->accept($value)) {
+            throw new ValueException('Expecting a valid value.');
+        }
+
+        $this->value = $value;
+    }
 }

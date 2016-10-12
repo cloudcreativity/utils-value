@@ -18,22 +18,9 @@
 
 namespace CloudCreativity\Utils\Value;
 
-final class TestValue extends AbstractValue
+use Exception;
+
+class ValueException extends Exception
 {
 
-    /**
-     * @inheritdoc
-     */
-    protected function accept($value)
-    {
-        return is_string($value) && 2 < strlen($value);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function useStrict()
-    {
-        return false;
-    }
 }

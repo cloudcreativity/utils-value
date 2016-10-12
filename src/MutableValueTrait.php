@@ -18,29 +18,36 @@
 
 namespace CloudCreativity\Utils\Value;
 
-interface ScalarValueInterface extends ValueInterface
+trait MutableValueTrait
 {
 
-    /**
-     * @return string
-     */
-    public function __toString();
+    use ValueTrait;
 
     /**
-     * @return mixed
-     */
-    public function get();
-
-    /**
-     * @param mixed $value
-     * @return $this
-     * @throws InvalidValueException
-     */
-    public function set($value);
-
-    /**
+     * Is the supplied scalar value acceptable?
+     *
      * @param $value
      * @return bool
      */
-    public static function isValid($value);
+    abstract protected function accept($value);
+
+    /**
+     * @param $value
+     * @return $this
+     * @throws ValueException
+     */
+    public function set($value)
+    {
+        if ($value instanceof ValueInterface) {
+            $value = $value->get();
+        }
+
+        if (!$this->accept($value)) {
+            throw new ValueException('Expecting a valid value.');
+        }
+
+        $this->value = $value;
+
+        return $this;
+    }
 }

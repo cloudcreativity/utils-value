@@ -20,29 +20,26 @@ namespace CloudCreativity\Utils\Value;
 
 use PHPUnit_Framework_TestCase;
 
-class AbstractScalarValueTest extends PHPUnit_Framework_TestCase
+final class AbstractValueTest extends PHPUnit_Framework_TestCase
 {
 
     public function testConstruct()
     {
-        $value = new TestValue(99);
+        $value = new TestValue('abc');
 
-        $this->assertSame(99, $value->get());
-        $this->assertSame('99', (string) $value);
-        $this->assertSame(99, $value->jsonSerialize());
+        $this->assertSame('abc', (string) $value);
     }
 
-    public function testSet()
+    public function testConstructInvalid()
     {
-        $value = new TestValue(99);
-
-        $this->assertSame($value, $value->set(999));
-        $this->assertSame(999, $value->get());
+        $this->setExpectedException(ValueException::class);
+        new TestValue('ab');
     }
 
-    public function testSetInvalid()
+    public function testIsNotStrict()
     {
-        $this->setExpectedException(InvalidValueException::class);
-        new TestValue('foo');
+        $value = new TestValue('123');
+
+        $this->assertTrue($value->is(123));
     }
 }
