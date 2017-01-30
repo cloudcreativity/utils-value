@@ -18,9 +18,9 @@
 
 namespace CloudCreativity\Utils\Value;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-final class AbstractValueTest extends PHPUnit_Framework_TestCase
+class AbstractValueTest extends TestCase
 {
 
     public function testConstruct()
@@ -32,7 +32,7 @@ final class AbstractValueTest extends PHPUnit_Framework_TestCase
 
     public function testConstructInvalid()
     {
-        $this->setExpectedException(ValueException::class);
+        $this->expectException(ValueException::class);
         new TestValue('ab');
     }
 

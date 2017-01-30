@@ -18,6 +18,11 @@
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * Class MutableValueTrait
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 trait MutableValueTrait
 {
 

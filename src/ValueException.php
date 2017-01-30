@@ -18,9 +18,14 @@
 
 namespace CloudCreativity\Utils\Value;
 
-use Exception;
+use InvalidArgumentException;
 
-class ValueException extends Exception
+/**
+ * Class ValueException
+ *
+ * @package CloudCreativity\Utils\Value
+ */
+class ValueException extends InvalidArgumentException
 {
 
 }

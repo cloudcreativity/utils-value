@@ -20,6 +20,11 @@ namespace CloudCreativity\Utils\Value;
 
 use JsonSerializable;
 
+/**
+ * Interface ValueInterface
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 interface ValueInterface extends JsonSerializable
 {
 
