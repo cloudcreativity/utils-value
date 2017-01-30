@@ -18,6 +18,11 @@
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * Class ValueTrait
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 trait ValueTrait
 {
 
