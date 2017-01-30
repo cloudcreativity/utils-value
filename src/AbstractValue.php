@@ -18,6 +18,11 @@
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * Class AbstractValue
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 abstract class AbstractValue implements ValueInterface
 {
 

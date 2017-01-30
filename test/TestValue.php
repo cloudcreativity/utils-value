@@ -18,7 +18,7 @@
 
 namespace CloudCreativity\Utils\Value;
 
-final class TestValue extends AbstractValue
+class TestValue extends AbstractValue
 {
 
     /**

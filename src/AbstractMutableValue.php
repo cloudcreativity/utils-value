@@ -18,6 +18,11 @@
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * Class AbstractMutableValue
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 abstract class AbstractMutableValue implements MutableValueInterface
 {
 

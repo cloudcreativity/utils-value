@@ -18,7 +18,7 @@
 
 namespace CloudCreativity\Utils\Value;
 
-final class TestMutableValue extends AbstractMutableValue
+class TestMutableValue extends AbstractMutableValue
 {
 
     /**

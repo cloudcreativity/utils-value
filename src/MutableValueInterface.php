@@ -18,6 +18,11 @@
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * Interface MutableValueInterface
+ *
+ * @package CloudCreativity\Utils\Value
+ */
 interface MutableValueInterface extends ValueInterface
 {
 
