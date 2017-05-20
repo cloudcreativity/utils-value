@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cloudcreativity/utils-value.svg?branch=master)](https://travis-ci.org/cloudcreativity/utils-value)
+
 # cloudcreativity/utils-value
 
 A small library to handle scalar values that have meaning.
