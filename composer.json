@@ -30,7 +30,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "CloudCreativity\\Utils\\Value\\": "test/"
+            "CloudCreativity\\Utils\\Value\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",

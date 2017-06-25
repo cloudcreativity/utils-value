@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 Cloud Creativity Limited
+ * Copyright 2017 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,16 @@
  * limitations under the License.
  */
 
-namespace CloudCreativity\Utils\Value;
+namespace CloudCreativity\Utils\Value\Tests;
 
-class TestValue extends AbstractValue
+use CloudCreativity\Utils\Value\AbstractValue;
+
+/**
+ * Class TestValue
+ *
+ * @package CloudCreativity\Utils\Value
+ */
+class StringValue extends AbstractValue
 {
 
     /**

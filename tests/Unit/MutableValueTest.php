@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 Cloud Creativity Limited
+ * Copyright 2017 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,24 @@
  * limitations under the License.
  */
 
-namespace CloudCreativity\Utils\Value;
+namespace CloudCreativity\Utils\Value\Tests\Unit;
 
+use CloudCreativity\Utils\Value\Tests\IntegerValue;
+use CloudCreativity\Utils\Value\ValueException;
+use CloudCreativity\Utils\Value\ValueInterface;
 use PHPUnit\Framework\TestCase;
 
-class AbstractMutableValueTest extends TestCase
+/**
+ * Class MutableValueTest
+ *
+ * @package CloudCreativity\Utils\Value
+ */
+class MutableValueTest extends TestCase
 {
 
     public function testConstruct()
     {
-        $value = new TestMutableValue(99);
+        $value = new IntegerValue(99);
 
         $this->assertSame(99, $value->get());
         $this->assertSame('99', (string) $value);
@@ -34,51 +42,51 @@ class AbstractMutableValueTest extends TestCase
 
     public function testFluentConstructor()
     {
-        $this->assertSame(99, TestMutableValue::create(99)->get());
+        $this->assertSame(99, IntegerValue::create(99)->get());
     }
 
     public function testCastsSelf()
     {
-        $expected = new TestMutableValue(99);
-        $this->assertSame($expected, TestMutableValue::cast($expected));
+        $expected = new IntegerValue(99);
+        $this->assertSame($expected, IntegerValue::cast($expected));
     }
 
     public function testCastsScalar()
     {
-        $expected = new TestMutableValue(99);
-        $this->assertEquals($expected, TestMutableValue::cast(99));
+        $expected = new IntegerValue(99);
+        $this->assertEquals($expected, IntegerValue::cast(99));
     }
 
     public function testCastsValueObject()
     {
         $value = $this->createMock(ValueInterface::class);
         $value->expects($this->once())->method('get')->willReturn(99);
-        $this->assertEquals(new TestMutableValue(99), TestMutableValue::cast($value));
+        $this->assertEquals(new IntegerValue(99), IntegerValue::cast($value));
     }
 
     public function testSet()
     {
-        $value = new TestMutableValue(99);
+        $value = new IntegerValue(99);
 
         $this->assertSame($value, $value->set(999));
         $this->assertSame(999, $value->get());
 
-        $value->set(new TestMutableValue(123));
+        $value->set(new IntegerValue(123));
         $this->assertSame(123, $value->get());
     }
 
     public function testSetInvalid()
     {
         $this->expectException(ValueException::class);
-        new TestMutableValue('foo');
+        new IntegerValue('foo');
     }
 
     public function testIs()
     {
-        $value = new TestMutableValue(99);
+        $value = new IntegerValue(99);
 
         $this->assertTrue($value->is(99));
         $this->assertFalse($value->is(99.0));
-        $this->assertTrue($value->is(new TestMutableValue(99)));
+        $this->assertTrue($value->is(new IntegerValue(99)));
     }
 }
