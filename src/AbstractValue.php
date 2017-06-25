@@ -37,6 +37,36 @@ abstract class AbstractValue implements ValueInterface
     abstract protected function accept($value);
 
     /**
+     * Fluent constructor.
+     *
+     * @param $value
+     * @return static
+     */
+    public static function create($value)
+    {
+        return new static($value);
+    }
+
+    /**
+     * Cast the provided value.
+     *
+     * @param mixed $value
+     * @return static
+     */
+    public static function cast($value)
+    {
+        if ($value instanceof static) {
+            return $value;
+        }
+
+        if ($value instanceof ValueInterface) {
+            $value = $value->get();
+        }
+
+        return new static($value);
+    }
+
+    /**
      * AbstractValue constructor.
      * @param $value
      * @throws ValueException

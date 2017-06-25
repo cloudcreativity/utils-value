@@ -30,6 +30,30 @@ class AbstractValueTest extends TestCase
         $this->assertSame('abc', (string) $value);
     }
 
+    public function testFluentConstructor()
+    {
+        $this->assertTrue(TestValue::create('abc')->is('abc'));
+    }
+
+    public function testCastsSelf()
+    {
+        $expected = new TestValue('abc');
+        $this->assertSame($expected, TestValue::cast($expected));
+    }
+
+    public function testCastsScalar()
+    {
+        $expected = new TestValue('abc');
+        $this->assertEquals($expected, TestValue::cast('abc'));
+    }
+
+    public function testCastsValueObject()
+    {
+        $mock = $this->createMock(ValueInterface::class);
+        $mock->expects($this->once())->method('get')->willReturn('abc');
+        $this->assertEquals(new TestValue('abc'), TestValue::cast($mock));
+    }
+
     public function testConstructInvalid()
     {
         $this->expectException(ValueException::class);

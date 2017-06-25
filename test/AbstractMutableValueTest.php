@@ -32,6 +32,30 @@ class AbstractMutableValueTest extends TestCase
         $this->assertSame(99, $value->jsonSerialize());
     }
 
+    public function testFluentConstructor()
+    {
+        $this->assertSame(99, TestMutableValue::create(99)->get());
+    }
+
+    public function testCastsSelf()
+    {
+        $expected = new TestMutableValue(99);
+        $this->assertSame($expected, TestMutableValue::cast($expected));
+    }
+
+    public function testCastsScalar()
+    {
+        $expected = new TestMutableValue(99);
+        $this->assertEquals($expected, TestMutableValue::cast(99));
+    }
+
+    public function testCastsValueObject()
+    {
+        $value = $this->createMock(ValueInterface::class);
+        $value->expects($this->once())->method('get')->willReturn(99);
+        $this->assertEquals(new TestMutableValue(99), TestMutableValue::cast($value));
+    }
+
     public function testSet()
     {
         $value = new TestMutableValue(99);
