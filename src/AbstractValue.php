@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 Cloud Creativity Limited
+ * Copyright 2017 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,6 +35,36 @@ abstract class AbstractValue implements ValueInterface
      * @return mixed
      */
     abstract protected function accept($value);
+
+    /**
+     * Fluent constructor.
+     *
+     * @param $value
+     * @return static
+     */
+    public static function create($value)
+    {
+        return new static($value);
+    }
+
+    /**
+     * Cast the provided value.
+     *
+     * @param mixed $value
+     * @return static
+     */
+    public static function cast($value)
+    {
+        if ($value instanceof static) {
+            return $value;
+        }
+
+        if ($value instanceof ValueInterface) {
+            $value = $value->get();
+        }
+
+        return new static($value);
+    }
 
     /**
      * AbstractValue constructor.

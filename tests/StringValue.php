@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright 2016 Cloud Creativity Limited
+ * Copyright 2017 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,30 +16,31 @@
  * limitations under the License.
  */
 
-namespace CloudCreativity\Utils\Value;
+namespace CloudCreativity\Utils\Value\Tests;
 
-use PHPUnit\Framework\TestCase;
+use CloudCreativity\Utils\Value\AbstractValue;
 
-class AbstractValueTest extends TestCase
+/**
+ * Class TestValue
+ *
+ * @package CloudCreativity\Utils\Value
+ */
+class StringValue extends AbstractValue
 {
 
-    public function testConstruct()
+    /**
+     * @inheritdoc
+     */
+    protected function accept($value)
     {
-        $value = new TestValue('abc');
-
-        $this->assertSame('abc', (string) $value);
+        return is_string($value) && 2 < strlen($value);
     }
 
-    public function testConstructInvalid()
+    /**
+     * @inheritdoc
+     */
+    protected function useStrict()
     {
-        $this->expectException(ValueException::class);
-        new TestValue('ab');
-    }
-
-    public function testIsNotStrict()
-    {
-        $value = new TestValue('123');
-
-        $this->assertTrue($value->is(123));
+        return false;
     }
 }

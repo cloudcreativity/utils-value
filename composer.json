@@ -30,14 +30,14 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "CloudCreativity\\Utils\\Value\\": "test/"
+            "CloudCreativity\\Utils\\Value\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "extra": {
       "branch-alias": {
-        "dev-develop": "1.1.x-dev"
+        "dev-develop": "1.x-dev"
       }
     }
 }
