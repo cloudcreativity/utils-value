@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
+## Unreleased
+
+## Added
+- The following methods have been added to value objects:
+  - `toString` for fluently casting the object to a string.
+  - `isAny` to check if the value is one of any number of provided values.
+
 ## [1.1.0] - 2017-07-25
 
 ### Added

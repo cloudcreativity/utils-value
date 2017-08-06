@@ -36,6 +36,16 @@ trait ValueTrait
      */
     public function __toString()
     {
+        return $this->toString();
+    }
+
+    /**
+     * Fluent to string method.
+     *
+     * @return string
+     */
+    public function toString()
+    {
         return (string) $this->value;
     }
 
@@ -58,6 +68,23 @@ trait ValueTrait
         }
 
         return $this->useStrict() ? $this->get() === $value : $this->get() == $value;
+    }
+
+    /**
+     * Is the value any of the provided values?
+     *
+     * @param array ...$values
+     * @return bool
+     */
+    public function isAny(...$values)
+    {
+        foreach ($values as $value) {
+            if ($this->is($value)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

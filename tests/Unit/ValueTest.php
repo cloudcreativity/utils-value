@@ -43,6 +43,11 @@ class ValueTest extends TestCase
         $this->assertTrue(StringValue::create('abc')->is('abc'));
     }
 
+    public function testToString()
+    {
+        $this->assertSame('abc', (string) StringValue::create('abc')->toString());
+    }
+
     public function testCastsSelf()
     {
         $expected = new StringValue('abc');
@@ -73,5 +78,20 @@ class ValueTest extends TestCase
         $value = new StringValue('123');
 
         $this->assertTrue($value->is(123));
+    }
+
+    public function testIsAny()
+    {
+        $value = new StringValue('abc');
+
+        $this->assertTrue($value->isAny('def', 'ab', 'abc'));
+        $this->assertFalse($value->isAny('def', 'ab'));
+    }
+
+    public function testIsAnyNotStrict()
+    {
+        $value = new StringValue('123');
+
+        $this->assertTrue($value->isAny('abc', 123));
     }
 }
