@@ -43,6 +43,7 @@ trait ValueTrait
      * Fluent to string method.
      *
      * @return string
+     * @todo add to interface for 2.0
      */
     public function toString()
     {
@@ -60,6 +61,7 @@ trait ValueTrait
     /**
      * @param mixed $value
      * @return bool
+     * @todo change to `isAny` syntax for 2.0
      */
     public function is($value)
     {
@@ -85,6 +87,24 @@ trait ValueTrait
         }
 
         return false;
+    }
+
+    /**
+     * @return bool
+     * @todo add to interface for 2.0
+     */
+    public function isEmpty()
+    {
+        return empty($this->value);
+    }
+
+    /**
+     * @return bool
+     * @todo add to interface for 2.0
+     */
+    public function isNotEmpty()
+    {
+        return !$this->isEmpty();
     }
 
     /**

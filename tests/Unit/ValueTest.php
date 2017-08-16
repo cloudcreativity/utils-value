@@ -18,6 +18,7 @@
 
 namespace CloudCreativity\Utils\Value\Tests\Unit;
 
+use CloudCreativity\Utils\Value\Tests\IntegerValue;
 use CloudCreativity\Utils\Value\Tests\StringValue;
 use CloudCreativity\Utils\Value\ValueException;
 use CloudCreativity\Utils\Value\ValueInterface;
@@ -93,5 +94,21 @@ class ValueTest extends TestCase
         $value = new StringValue('123');
 
         $this->assertTrue($value->isAny('abc', 123));
+    }
+
+    public function testEmpty()
+    {
+        $value = new IntegerValue(0);
+
+        $this->assertTrue($value->isEmpty());
+        $this->assertFalse($value->isNotEmpty());
+    }
+
+    public function testNotEmpty()
+    {
+        $value = new IntegerValue(1);
+
+        $this->assertTrue($value->isNotEmpty());
+        $this->assertFalse($value->isEmpty());
     }
 }

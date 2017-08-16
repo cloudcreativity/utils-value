@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file. This projec
 - The following methods have been added to value objects:
   - `toString` for fluently casting the object to a string.
   - `isAny` to check if the value is one of any number of provided values.
+  - `isEmpty` to check if the value is empty.
+  - `isNotEmpty` to check if the value is not empty.
 
 ## [1.1.0] - 2017-07-25
 
