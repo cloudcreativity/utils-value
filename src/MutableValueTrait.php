@@ -22,6 +22,7 @@ namespace CloudCreativity\Utils\Value;
  * Class MutableValueTrait
  *
  * @package CloudCreativity\Utils\Value
+ * @deprecated will be removed in 2.0
  */
 trait MutableValueTrait
 {
