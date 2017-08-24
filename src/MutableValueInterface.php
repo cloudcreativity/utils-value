@@ -22,6 +22,7 @@ namespace CloudCreativity\Utils\Value;
  * Interface MutableValueInterface
  *
  * @package CloudCreativity\Utils\Value
+ * @deprecated will be removed in 2.0
  */
 interface MutableValueInterface extends ValueInterface
 {

@@ -18,6 +18,7 @@
 
 namespace CloudCreativity\Utils\Value\Tests\Unit;
 
+use CloudCreativity\Utils\Value\Tests\IntegerValue;
 use CloudCreativity\Utils\Value\Tests\StringValue;
 use CloudCreativity\Utils\Value\ValueException;
 use CloudCreativity\Utils\Value\ValueInterface;
@@ -41,6 +42,11 @@ class ValueTest extends TestCase
     public function testFluentConstructor()
     {
         $this->assertTrue(StringValue::create('abc')->is('abc'));
+    }
+
+    public function testToString()
+    {
+        $this->assertSame('abc', (string) StringValue::create('abc')->toString());
     }
 
     public function testCastsSelf()
@@ -73,5 +79,36 @@ class ValueTest extends TestCase
         $value = new StringValue('123');
 
         $this->assertTrue($value->is(123));
+    }
+
+    public function testIsAny()
+    {
+        $value = new StringValue('abc');
+
+        $this->assertTrue($value->isAny('def', 'ab', 'abc'));
+        $this->assertFalse($value->isAny('def', 'ab'));
+    }
+
+    public function testIsAnyNotStrict()
+    {
+        $value = new StringValue('123');
+
+        $this->assertTrue($value->isAny('abc', 123));
+    }
+
+    public function testEmpty()
+    {
+        $value = new IntegerValue(0);
+
+        $this->assertTrue($value->isEmpty());
+        $this->assertFalse($value->isNotEmpty());
+    }
+
+    public function testNotEmpty()
+    {
+        $value = new IntegerValue(1);
+
+        $this->assertTrue($value->isNotEmpty());
+        $this->assertFalse($value->isEmpty());
     }
 }

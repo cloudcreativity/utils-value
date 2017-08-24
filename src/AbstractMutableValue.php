@@ -22,6 +22,7 @@ namespace CloudCreativity\Utils\Value;
  * Class AbstractMutableValue
  *
  * @package CloudCreativity\Utils\Value
+ * @deprecated will be removed in 2.0
  */
 abstract class AbstractMutableValue implements MutableValueInterface
 {

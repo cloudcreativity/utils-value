@@ -36,6 +36,17 @@ trait ValueTrait
      */
     public function __toString()
     {
+        return $this->toString();
+    }
+
+    /**
+     * Fluent to string method.
+     *
+     * @return string
+     * @todo add to interface for 2.0
+     */
+    public function toString()
+    {
         return (string) $this->value;
     }
 
@@ -50,6 +61,7 @@ trait ValueTrait
     /**
      * @param mixed $value
      * @return bool
+     * @todo change to `isAny` syntax for 2.0
      */
     public function is($value)
     {
@@ -58,6 +70,39 @@ trait ValueTrait
         }
 
         return $this->useStrict() ? $this->get() === $value : $this->get() == $value;
+    }
+
+    /**
+     * Is the value any of the provided values?
+     *
+     * @param array ...$values
+     * @return bool
+     */
+    public function isAny(...$values)
+    {
+        foreach ($values as $value) {
+            if ($this->is($value)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return empty($this->value);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isNotEmpty()
+    {
+        return !$this->isEmpty();
     }
 
     /**

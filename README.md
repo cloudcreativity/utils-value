@@ -52,12 +52,6 @@ public function setRole(DanceRole $role)
 }
 ```
 
-## Mutable Values
-
-If our `DanceRole` was mutable, i.e. code was allowed to change the value on the object
-instance, then we'd extend `AbstractMutableValue` instead. This adds a `set()` method
-that allows the value of the object to be changed.
-
 ## Helper Methods
 
 Quite often we find it is useful for the value object to have helper methods. By implementing
@@ -84,22 +78,16 @@ class DanceRole extends AbstractValue
 }
 ```
 
-## Traits
+## Trait
 
-If you do not want to extend the abstract classes, the majority of methods are available
-via the `ValueTrait` and `MutableValueTrait`.
+If you do not want to extend the abstract classes, the majority of methods are available via the `ValueTrait`.
 
-## Interfaces
+## Interface
 
-This package defines two interfaces to ensure consistency across value objects:
-
-### ValueInterface
+This package defines an interface, `ValueInterface`, to ensure consistency across value objects:
 
 - `__toString()` : so that a scalar value can always be written to a string
 - `jsonSerialize()` : so that a scalar value can always be cast properly when being JSON encoded
 - `get()` : gets the underlying scalar value, e.g. would return a string if the value object holds a string.
 - `is($value)` : compares a provided value to the underlying scalar value.
 
-### MutableValueInterface
-
-Extends `ValueInterface` and adds a `set($value)` method for modifying the underlying scalar value.

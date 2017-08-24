@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
+## [1.2.0] - 2017-08-24
+
+## Added
+- The following methods have been added to value objects:
+  - `toString` for fluently casting the object to a string.
+  - `isAny` to check if the value is one of any number of provided values.
+  - `isEmpty` to check if the value is empty.
+  - `isNotEmpty` to check if the value is not empty.
+  
+## Deprecated
+- Mutable value objects are deprecated and will be removed in 2.0
+
 ## [1.1.0] - 2017-07-25
 
 ### Added
