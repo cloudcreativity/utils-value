@@ -91,7 +91,6 @@ trait ValueTrait
 
     /**
      * @return bool
-     * @todo add to interface for 2.0
      */
     public function isEmpty()
     {
@@ -100,7 +99,6 @@ trait ValueTrait
 
     /**
      * @return bool
-     * @todo add to interface for 2.0
      */
     public function isNotEmpty()
     {
