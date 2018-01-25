@@ -32,9 +32,9 @@ abstract class AbstractValue implements ValueInterface
      * Is the supplied scalar value acceptable for this value class?
      *
      * @param $value
-     * @return mixed
+     * @return bool
      */
-    abstract protected function accept($value);
+    abstract protected function accept($value): bool;
 
     /**
      * Fluent constructor.
@@ -42,7 +42,7 @@ abstract class AbstractValue implements ValueInterface
      * @param $value
      * @return static
      */
-    public static function create($value)
+    public static function create($value): ValueInterface
     {
         return new static($value);
     }
@@ -53,7 +53,7 @@ abstract class AbstractValue implements ValueInterface
      * @param mixed $value
      * @return static
      */
-    public static function cast($value)
+    public static function cast($value): ValueInterface
     {
         if ($value instanceof static) {
             return $value;
@@ -68,7 +68,8 @@ abstract class AbstractValue implements ValueInterface
 
     /**
      * AbstractValue constructor.
-     * @param $value
+     *
+     * @param mixed $value
      * @throws ValueException
      */
     public function __construct($value)

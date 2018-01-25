@@ -34,14 +34,25 @@ interface ValueInterface extends JsonSerializable
     public function __toString();
 
     /**
+     * Fluent string method.
+     *
+     * @return string
+     */
+    public function toString(): string;
+
+    /**
      * @return mixed
      */
     public function get();
 
     /**
-     * @param mixed $value
+     * Is the value any of the provided values?
+     *
+     * @param array ...$values
      * @return bool
+     * @throws \BadMethodCallException
+     *      if invoked without any values.
      */
-    public function is($value);
+    public function is(...$values) : bool;
 
 }

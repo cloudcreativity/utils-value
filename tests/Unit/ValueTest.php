@@ -85,15 +85,21 @@ class ValueTest extends TestCase
     {
         $value = new StringValue('abc');
 
-        $this->assertTrue($value->isAny('def', 'ab', 'abc'));
-        $this->assertFalse($value->isAny('def', 'ab'));
+        $this->assertTrue($value->is('def', 'ab', 'abc'));
+        $this->assertFalse($value->is('def', 'ab'));
     }
 
     public function testIsAnyNotStrict()
     {
         $value = new StringValue('123');
 
-        $this->assertTrue($value->isAny('abc', 123));
+        $this->assertTrue($value->is('abc', 123));
+    }
+
+    public function testIsNoArguments()
+    {
+        $this->expectException(\BadMethodCallException::class);
+        StringValue::create('123')->is();
     }
 
     public function testEmpty()

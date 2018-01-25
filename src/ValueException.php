@@ -27,5 +27,4 @@ use InvalidArgumentException;
  */
 class ValueException extends InvalidArgumentException
 {
-
 }

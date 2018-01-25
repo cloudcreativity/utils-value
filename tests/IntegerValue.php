@@ -31,7 +31,7 @@ class IntegerValue extends AbstractValue
     /**
      * @inheritdoc
      */
-    protected function accept($value)
+    protected function accept($value): bool
     {
         return is_int($value);
     }

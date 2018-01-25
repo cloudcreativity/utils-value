@@ -31,7 +31,7 @@ class StringValue extends AbstractValue
     /**
      * @inheritdoc
      */
-    protected function accept($value)
+    protected function accept($value): bool
     {
         return is_string($value) && 2 < strlen($value);
     }
@@ -39,7 +39,7 @@ class StringValue extends AbstractValue
     /**
      * @inheritdoc
      */
-    protected function useStrict()
+    protected function useStrict(): bool
     {
         return false;
     }
