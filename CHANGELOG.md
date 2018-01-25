@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
+## Unreleased
+
+This package now requires PHP 7.1 or above.
+
+### Removed
+- No longer support PHP 5.6 and 7.0.
+
 ## [1.2.0] - 2017-08-24
 
 ## Added
