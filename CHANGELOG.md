@@ -8,6 +8,7 @@ This package now requires PHP 7.1 or above.
 
 ### Removed
 - No longer support PHP 5.6 and 7.0.
+- Deprecated mutable value objects have been removed.
 
 ## [1.2.0] - 2017-08-24
 

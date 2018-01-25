@@ -18,14 +18,14 @@
 
 namespace CloudCreativity\Utils\Value\Tests;
 
-use CloudCreativity\Utils\Value\AbstractMutableValue;
+use CloudCreativity\Utils\Value\AbstractValue;
 
 /**
  * Class TestMutableValue
  *
  * @package CloudCreativity\Utils\Value
  */
-class IntegerValue extends AbstractMutableValue
+class IntegerValue extends AbstractValue
 {
 
     /**
