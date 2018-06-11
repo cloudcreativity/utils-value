@@ -83,7 +83,7 @@ trait ValueTrait
     /**
      * @return bool
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return empty($this->value);
     }
@@ -91,7 +91,7 @@ trait ValueTrait
     /**
      * @return bool
      */
-    public function isNotEmpty()
+    public function isNotEmpty(): bool
     {
         return !$this->isEmpty();
     }
