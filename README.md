@@ -36,7 +36,7 @@ use CloudCreativity\Utils\Value\AbstractValue;
 class DanceRole extends AbstractValue
 {
   
-  protected function accept($value)
+  protected function accept($value): bool
   {
     return in_array($value, ['lead', 'follow'], true);
   }
@@ -64,12 +64,12 @@ For instance, or `DanceRole` object could look like this:
 class DanceRole extends AbstractValue
 {
 
-  public function isLead()
+  public function isLead(): bool
   {
     return $this->is('lead');
   }
 
-  public function isFollow()
+  public function isFollow(): bool
   {
     return $this->is('follow');
   }
@@ -80,14 +80,16 @@ class DanceRole extends AbstractValue
 
 ## Trait
 
-If you do not want to extend the abstract classes, the majority of methods are available via the `ValueTrait`.
+If you do not want to extend the abstract class, the majority of methods are available via the `ValueTrait`.
 
 ## Interface
 
 This package defines an interface, `ValueInterface`, to ensure consistency across value objects:
 
-- `__toString()` : so that a scalar value can always be written to a string
-- `jsonSerialize()` : so that a scalar value can always be cast properly when being JSON encoded
+- `__toString()` : so that a scalar value can always be written to a string.
+- `toString()` : so that a scalar value can fluently be cast to a string.
+- `jsonSerialize()` : so that a scalar value can always be cast properly when being JSON encoded.
 - `get()` : gets the underlying scalar value, e.g. would return a string if the value object holds a string.
-- `is($value)` : compares a provided value to the underlying scalar value.
+- `is(...$values)` : compares provided values to the underlying scalar value, returning `true` if the value matches
+any of them.
 

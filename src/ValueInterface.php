@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2017 Cloud Creativity Limited
+ * Copyright 2018 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,14 +33,25 @@ interface ValueInterface extends JsonSerializable
     public function __toString();
 
     /**
+     * Fluent string method.
+     *
+     * @return string
+     */
+    public function toString(): string;
+
+    /**
      * @return mixed
      */
     public function get();
 
     /**
-     * @param mixed $value
+     * Is the value any of the provided values?
+     *
+     * @param array ...$values
      * @return bool
+     * @throws \BadMethodCallException
+     *      if invoked without any values.
      */
-    public function is($value);
+    public function is(...$values): bool;
 
 }

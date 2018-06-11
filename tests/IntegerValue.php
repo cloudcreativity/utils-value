@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2017 Cloud Creativity Limited
+ * Copyright 2018 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,20 +17,20 @@
 
 namespace CloudCreativity\Utils\Value\Tests;
 
-use CloudCreativity\Utils\Value\AbstractMutableValue;
+use CloudCreativity\Utils\Value\AbstractValue;
 
 /**
  * Class TestMutableValue
  *
  * @package CloudCreativity\Utils\Value
  */
-class IntegerValue extends AbstractMutableValue
+class IntegerValue extends AbstractValue
 {
 
     /**
      * @inheritdoc
      */
-    protected function accept($value)
+    protected function accept($value): bool
     {
         return is_int($value);
     }

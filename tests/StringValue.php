@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2017 Cloud Creativity Limited
+ * Copyright 2018 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +30,7 @@ class StringValue extends AbstractValue
     /**
      * @inheritdoc
      */
-    protected function accept($value)
+    protected function accept($value): bool
     {
         return is_string($value) && 2 < strlen($value);
     }
@@ -39,7 +38,7 @@ class StringValue extends AbstractValue
     /**
      * @inheritdoc
      */
-    protected function useStrict()
+    protected function useStrict(): bool
     {
         return false;
     }
