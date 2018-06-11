@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2017 Cloud Creativity Limited
+ * Copyright 2018 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +52,6 @@ interface ValueInterface extends JsonSerializable
      * @throws \BadMethodCallException
      *      if invoked without any values.
      */
-    public function is(...$values) : bool;
+    public function is(...$values): bool;
 
 }
