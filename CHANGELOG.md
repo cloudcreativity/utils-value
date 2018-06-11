@@ -2,13 +2,17 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
-## Unreleased
+## [2.0.0] - 2018-06-11
 
 This package now requires PHP 7.1 or above.
+
+### Changed
+- Added PHP 7 return types to interface, trait and abstract class methods.
 
 ### Removed
 - No longer support PHP 5.6 and 7.0.
 - Deprecated mutable value objects have been removed.
+- Removed the `isAny` method in favour of `is`.
 
 ## [1.2.0] - 2017-08-24
 
