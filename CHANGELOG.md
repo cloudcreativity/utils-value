@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
+## [2.1.0] - 2021-01-27
+
+### Added
+- Package now supports PHP 8.
+
 ## [2.0.0] - 2018-06-11
 
 This package now requires PHP 7.1 or above.
@@ -22,7 +27,7 @@ This package now requires PHP 7.1 or above.
   - `isAny` to check if the value is one of any number of provided values.
   - `isEmpty` to check if the value is empty.
   - `isNotEmpty` to check if the value is not empty.
-  
+
 ## Deprecated
 - Mutable value objects are deprecated and will be removed in 2.0
 
