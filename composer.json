@@ -1,8 +1,7 @@
 {
     "name": "cloudcreativity/utils-value",
-    "description": "Library to handle standard scalar values and defined array values in PHP.",
+    "description": "Library to handle standard scalar values in PHP.",
     "keywords": [
-        "cloudcreativity",
         "value",
         "scalar"
     ],
@@ -18,10 +17,10 @@
         }
     ],
     "require": {
-        "php": "^7.1.3"
+        "php": "^7.1.3|^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^7.0|^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
