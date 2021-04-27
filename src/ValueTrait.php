@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace CloudCreativity\Utils\Value;
 
 use BadMethodCallException;
@@ -61,7 +63,7 @@ trait ValueTrait
     /**
      * Is the value any of the provided values?
      *
-     * @param array ...$values
+     * @param mixed ...$values
      * @return bool
      */
     public function is(...$values): bool
@@ -96,7 +98,7 @@ trait ValueTrait
     }
 
     /**
-     * @return mixed
+     * @inheritDoc
      */
     public function jsonSerialize()
     {
@@ -115,7 +117,11 @@ trait ValueTrait
             $value = $value->get();
         }
 
-        return $this->useStrict() ? $this->get() === $value : $this->get() == $value;
+        if ($this->useStrict()) {
+            return $this->get() === $value;
+        }
+
+        return $this->get() == $value;
     }
 
     /**

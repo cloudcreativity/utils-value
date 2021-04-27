@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace CloudCreativity\Utils\Value;
 
 /**
@@ -73,10 +75,21 @@ abstract class AbstractValue implements ValueInterface
      */
     public function __construct($value)
     {
-        if (!$this->accept($value)) {
+        if ($this->notAcceptable($value)) {
             throw new ValueException('Expecting a valid value.');
         }
 
         $this->value = $value;
+    }
+
+    /**
+     * Is the value not acceptable?
+     *
+     * @param mixed $value
+     * @return bool
+     */
+    protected function notAcceptable($value): bool
+    {
+        return !$this->accept($value);
     }
 }

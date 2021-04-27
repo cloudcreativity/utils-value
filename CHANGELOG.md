@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file. This projec
 
 - Package tests are now run using Github actions instead of Travis.
 
+### Fixed
+
+- Fixed the argument type in the docblock for `ValueTrait::is()` and `ValueInterface::is()`.
+
 ## [2.1.0] - 2021-01-27
 
 ### Added

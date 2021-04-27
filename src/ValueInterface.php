@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace CloudCreativity\Utils\Value;
 
 use JsonSerializable;
@@ -47,7 +49,7 @@ interface ValueInterface extends JsonSerializable
     /**
      * Is the value any of the provided values?
      *
-     * @param array ...$values
+     * @param mixed ...$values
      * @return bool
      * @throws \BadMethodCallException
      *      if invoked without any values.
