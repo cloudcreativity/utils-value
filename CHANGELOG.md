@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## Unreleased
 
+### Added
+
+- New static `AbstractValue::nullable()` method. This casts the provided value to the value object, unless it is `null`.
+
 ### Changed
 
 - Package tests are now run using Github actions instead of Travis.

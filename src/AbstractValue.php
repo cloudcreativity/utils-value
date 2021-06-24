@@ -68,6 +68,21 @@ abstract class AbstractValue implements ValueInterface
     }
 
     /**
+     * Cast the provided value, if it is not null.
+     *
+     * @param mixed|null $value
+     * @return ValueInterface|null
+     */
+    public static function nullable($value): ?ValueInterface
+    {
+        if (is_null($value)) {
+            return null;
+        }
+
+        return static::cast($value);
+    }
+
+    /**
      * AbstractValue constructor.
      *
      * @param mixed $value

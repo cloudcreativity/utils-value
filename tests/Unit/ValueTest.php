@@ -23,11 +23,6 @@ use CloudCreativity\Utils\Value\ValueException;
 use CloudCreativity\Utils\Value\ValueInterface;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class ValueTest
- *
- * @package CloudCreativity\Utils\Value
- */
 class ValueTest extends TestCase
 {
 
@@ -52,19 +47,28 @@ class ValueTest extends TestCase
     {
         $expected = new StringValue('abc');
         $this->assertSame($expected, StringValue::cast($expected));
+        $this->assertSame($expected, StringValue::nullable($expected));
     }
 
     public function testCastsScalar()
     {
         $expected = new StringValue('abc');
         $this->assertEquals($expected, StringValue::cast('abc'));
+        $this->assertEquals($expected, StringValue::nullable('abc'));
     }
 
     public function testCastsValueObject()
     {
         $mock = $this->createMock(ValueInterface::class);
-        $mock->expects($this->once())->method('get')->willReturn('abc');
+        $mock->expects($this->exactly(2))->method('get')->willReturn('abc');
+
         $this->assertEquals(new StringValue('abc'), StringValue::cast($mock));
+        $this->assertEquals(new StringValue('abc'), StringValue::nullable($mock));
+    }
+
+    public function testNullableWithNull(): void
+    {
+        $this->assertNull(StringValue::nullable(null));
     }
 
     public function testConstructInvalid()
