@@ -19,11 +19,6 @@ namespace CloudCreativity\Utils\Value\Tests;
 
 use CloudCreativity\Utils\Value\AbstractValue;
 
-/**
- * Class TestMutableValue
- *
- * @package CloudCreativity\Utils\Value
- */
 class IntegerValue extends AbstractValue
 {
 
