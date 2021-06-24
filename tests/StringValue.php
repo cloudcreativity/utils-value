@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+declare(strict_types=1);
+
 namespace CloudCreativity\Utils\Value\Tests;
 
 use CloudCreativity\Utils\Value\AbstractValue;
