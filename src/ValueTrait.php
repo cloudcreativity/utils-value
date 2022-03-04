@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2021 Cloud Creativity Limited
+ * Copyright 2022 Cloud Creativity Limited
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+declare(strict_types=1);
 
 namespace CloudCreativity\Utils\Value;
 
@@ -61,7 +63,7 @@ trait ValueTrait
     /**
      * Is the value any of the provided values?
      *
-     * @param array ...$values
+     * @param mixed ...$values
      * @return bool
      */
     public function is(...$values): bool
@@ -96,8 +98,9 @@ trait ValueTrait
     }
 
     /**
-     * @return mixed
+     * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->get();
@@ -115,7 +118,11 @@ trait ValueTrait
             $value = $value->get();
         }
 
-        return $this->useStrict() ? $this->get() === $value : $this->get() == $value;
+        if ($this->useStrict()) {
+            return $this->get() === $value;
+        }
+
+        return $this->get() == $value;
     }
 
     /**
