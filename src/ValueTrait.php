@@ -100,6 +100,7 @@ trait ValueTrait
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->get();
