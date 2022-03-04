@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. This project adheres to
 [Semantic Versioning](http://semver.org/) and [this changelog format](http://keepachangelog.com/).
 
-## Unreleased
+## [2.2.0] - 2022-03-04
 
 ### Added
 
@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed
 
+- Removed deprecation message on `jsonSerialize()` return type for PHP 8.1.
 - Fixed the argument type in the docblock for `ValueTrait::is()` and `ValueInterface::is()`.
 
 ## [2.1.0] - 2021-01-27
@@ -65,4 +66,3 @@ This package now requires PHP 7.1 or above.
 
 - Minimum PHP version is now `5.6.0`.
 - `ValueException` now extends `InvalidArgumentException`.
-
