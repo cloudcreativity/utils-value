@@ -17,7 +17,7 @@ use CloudCreativity\Utils\Value\AbstractValue;
 /**
  * @extends AbstractValue<string>
  */
-class StringValue extends AbstractValue
+final readonly class StringValue extends AbstractValue
 {
     protected function accept(mixed $value): bool
     {

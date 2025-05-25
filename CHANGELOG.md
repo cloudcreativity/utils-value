@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 
 - Minimum PHP version is now 8.2.
 - Added generics to the value interface, abstract class and trait. This will be breaking if you are running PHPStan.
+- **BREAKING**: The abstract value and value trait are now both readonly. This is because value objects should always be immutable.
 
 ## [2.2.0] - 2022-03-04
 

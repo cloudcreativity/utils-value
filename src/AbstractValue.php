@@ -16,7 +16,7 @@ namespace CloudCreativity\Utils\Value;
  * @template TValue
  * @implements ValueInterface<TValue>
  */
-abstract class AbstractValue implements ValueInterface
+abstract readonly class AbstractValue implements ValueInterface
 {
     /** @use ValueTrait<TValue> */
     use ValueTrait;
