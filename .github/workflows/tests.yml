@@ -39,5 +39,8 @@ jobs:
     - name : Run static analysis
       run: composer run static
 
+    - name: Execute style
+      run: composer run style
+
     - name: Execute tests
       run: composer run test

@@ -22,7 +22,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "laravel/pint": "^1.22"
     },
     "autoload": {
         "psr-4": {
@@ -37,9 +38,12 @@
     "scripts": {
         "all": [
             "@static",
+            "@style",
             "@test"
         ],
         "static": "phpstan analyse -c phpstan.neon",
+        "style": "pint --test",
+        "style:fix": "pint",
         "test": "phpunit"
     },
     "minimum-stability": "stable",

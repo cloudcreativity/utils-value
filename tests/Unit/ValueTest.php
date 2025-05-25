@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2022 Cloud Creativity Limited
  *
@@ -27,7 +28,6 @@ use PHPUnit\Framework\TestCase;
 
 class ValueTest extends TestCase
 {
-
     public function testConstruct(): void
     {
         $value = new StringValue('abc');
