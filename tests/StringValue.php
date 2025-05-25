@@ -23,18 +23,11 @@ use CloudCreativity\Utils\Value\AbstractValue;
 
 class StringValue extends AbstractValue
 {
-
-    /**
-     * @inheritdoc
-     */
-    protected function accept($value): bool
+    protected function accept(mixed $value): bool
     {
         return is_string($value) && 2 < strlen($value);
     }
 
-    /**
-     * @inheritdoc
-     */
     protected function useStrict(): bool
     {
         return false;

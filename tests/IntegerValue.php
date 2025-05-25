@@ -23,11 +23,7 @@ use CloudCreativity\Utils\Value\AbstractValue;
 
 class IntegerValue extends AbstractValue
 {
-
-    /**
-     * @inheritdoc
-     */
-    protected function accept($value): bool
+    protected function accept(mixed $value): bool
     {
         return is_int($value);
     }

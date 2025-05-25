@@ -28,16 +28,15 @@ use BadMethodCallException;
  */
 trait ValueTrait
 {
-
     /**
      * @var mixed
      */
-    protected $value;
+    protected mixed $value;
 
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->toString();
     }
@@ -55,7 +54,7 @@ trait ValueTrait
     /**
      * @return mixed
      */
-    public function get()
+    public function get(): mixed
     {
         return $this->value;
     }
@@ -68,7 +67,7 @@ trait ValueTrait
      */
     public function is(...$values): bool
     {
-        if (empty($values)) {
+        if (count($values) === 0) {
             throw new BadMethodCallException('Values must be provided.');
         }
 
@@ -100,8 +99,7 @@ trait ValueTrait
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->get();
     }
@@ -112,7 +110,7 @@ trait ValueTrait
      * @param mixed $value
      * @return bool
      */
-    protected function matches($value): bool
+    protected function matches(mixed $value): bool
     {
         if ($value instanceof ValueInterface) {
             $value = $value->get();
@@ -134,5 +132,4 @@ trait ValueTrait
     {
         return true;
     }
-
 }

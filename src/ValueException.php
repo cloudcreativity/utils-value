@@ -21,11 +21,6 @@ namespace CloudCreativity\Utils\Value;
 
 use InvalidArgumentException;
 
-/**
- * Class ValueException
- *
- * @package CloudCreativity\Utils\Value
- */
 class ValueException extends InvalidArgumentException
 {
 }

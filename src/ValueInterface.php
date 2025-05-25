@@ -19,21 +19,12 @@ declare(strict_types=1);
 
 namespace CloudCreativity\Utils\Value;
 
+use BadMethodCallException;
 use JsonSerializable;
+use Stringable;
 
-/**
- * Interface ValueInterface
- *
- * @package CloudCreativity\Utils\Value
- */
-interface ValueInterface extends JsonSerializable
+interface ValueInterface extends JsonSerializable, Stringable
 {
-
-    /**
-     * @return string
-     */
-    public function __toString();
-
     /**
      * Fluent string method.
      *
@@ -44,15 +35,14 @@ interface ValueInterface extends JsonSerializable
     /**
      * @return mixed
      */
-    public function get();
+    public function get(): mixed;
 
     /**
      * Is the value any of the provided values?
      *
      * @param mixed ...$values
      * @return bool
-     * @throws \BadMethodCallException
-     *      if invoked without any values.
+     * @throws BadMethodCallException if invoked without any values.
      */
     public function is(...$values): bool;
 

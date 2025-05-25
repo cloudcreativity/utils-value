@@ -19,67 +19,87 @@ declare(strict_types=1);
 
 namespace CloudCreativity\Utils\Value;
 
-/**
- * Class AbstractValue
- *
- * @package CloudCreativity\Utils\Value
- */
 abstract class AbstractValue implements ValueInterface
 {
-
     use ValueTrait;
 
     /**
      * Is the supplied scalar value acceptable for this value class?
      *
-     * @param $value
+     * @param mixed $value
      * @return bool
      */
-    abstract protected function accept($value): bool;
+    abstract protected function accept(mixed $value): bool;
 
     /**
      * Fluent constructor.
      *
-     * @param $value
+     * @param mixed $value
      * @return static
      */
-    public static function create($value): ValueInterface
+    public static function create(mixed $value): static
     {
         return new static($value);
     }
 
     /**
-     * Cast the provided value.
+     * Create a value.
      *
      * @param mixed $value
      * @return static
      */
-    public static function cast($value): ValueInterface
+    public static function from(mixed $value): static
     {
-        if ($value instanceof static) {
-            return $value;
-        }
-
-        if ($value instanceof ValueInterface) {
-            $value = $value->get();
-        }
-
-        return new static($value);
+        return match (true) {
+            $value instanceof static => $value,
+            $value instanceof ValueInterface => new static($value->get()),
+            default => new static($value),
+        };
     }
 
     /**
-     * Cast the provided value, if it is not null.
+     * Create a value if it is acceptable, otherwise return null.
      *
-     * @param mixed|null $value
-     * @return ValueInterface|null
+     * @param mixed $value
+     * @return static|null
      */
-    public static function nullable($value): ?ValueInterface
+    public static function tryFrom(mixed $value): ?static
     {
-        if (is_null($value)) {
+        if ($value === null) {
             return null;
         }
 
-        return static::cast($value);
+        try {
+            return static::from($value);
+        } catch (ValueException) {
+            return null;
+        }
+    }
+
+    /**
+     * Backward compatibility method for casting values.
+     *
+     * @param mixed $value
+     * @return static
+     */
+    public static function cast(mixed $value): static
+    {
+        return static::from($value);
+    }
+
+    /**
+     * Cast the provided value if it is not null.
+     *
+     * @param mixed|null $value
+     * @return static|null
+     */
+    public static function nullable(mixed $value): ?static
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        return static::from($value);
     }
 
     /**
@@ -88,7 +108,7 @@ abstract class AbstractValue implements ValueInterface
      * @param mixed $value
      * @throws ValueException
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         if ($this->notAcceptable($value)) {
             throw new ValueException('Expecting a valid value.');
@@ -103,7 +123,7 @@ abstract class AbstractValue implements ValueInterface
      * @param mixed $value
      * @return bool
      */
-    protected function notAcceptable($value): bool
+    protected function notAcceptable(mixed $value): bool
     {
         return !$this->accept($value);
     }
