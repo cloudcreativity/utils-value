@@ -19,8 +19,13 @@ declare(strict_types=1);
 
 namespace CloudCreativity\Utils\Value;
 
+/**
+ * @template TValue
+ * @implements ValueInterface<TValue>
+ */
 abstract class AbstractValue implements ValueInterface
 {
+    /** @use ValueTrait<TValue> */
     use ValueTrait;
 
     /**
@@ -39,7 +44,7 @@ abstract class AbstractValue implements ValueInterface
      */
     public static function create(mixed $value): static
     {
-        return new static($value);
+        return static::from($value);
     }
 
     /**

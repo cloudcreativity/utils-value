@@ -20,16 +20,15 @@ declare(strict_types=1);
 namespace CloudCreativity\Utils\Value;
 
 use BadMethodCallException;
+use LogicException;
 
 /**
- * Class ValueTrait
- *
- * @package CloudCreativity\Utils\Value
+ * @template TValue
  */
 trait ValueTrait
 {
     /**
-     * @var mixed
+     * @var TValue
      */
     protected mixed $value;
 
@@ -48,11 +47,15 @@ trait ValueTrait
      */
     public function toString(): string
     {
-        return (string) $this->value;
+        if (is_scalar($this->value)) {
+            return (string) $this->value;
+        }
+
+        throw new LogicException('Cannot convert value to string - override the toString method.');
     }
 
     /**
-     * @return mixed
+     * @return TValue
      */
     public function get(): mixed
     {
@@ -97,7 +100,7 @@ trait ValueTrait
     }
 
     /**
-     * @inheritDoc
+     * @return TValue
      */
     public function jsonSerialize(): mixed
     {

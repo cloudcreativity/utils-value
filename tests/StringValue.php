@@ -21,6 +21,9 @@ namespace CloudCreativity\Utils\Value\Tests;
 
 use CloudCreativity\Utils\Value\AbstractValue;
 
+/**
+ * @extends AbstractValue<string>
+ */
 class StringValue extends AbstractValue
 {
     protected function accept(mixed $value): bool

@@ -23,8 +23,13 @@ use BadMethodCallException;
 use JsonSerializable;
 use Stringable;
 
+/**
+ * @template TValue of mixed
+ */
 interface ValueInterface extends JsonSerializable, Stringable
 {
+    public function __construct(mixed $value);
+
     /**
      * Fluent string method.
      *
@@ -33,7 +38,7 @@ interface ValueInterface extends JsonSerializable, Stringable
     public function toString(): string;
 
     /**
-     * @return mixed
+     * @return TValue
      */
     public function get(): mixed;
 
@@ -44,6 +49,6 @@ interface ValueInterface extends JsonSerializable, Stringable
      * @return bool
      * @throws BadMethodCallException if invoked without any values.
      */
-    public function is(...$values): bool;
+    public function is(mixed ...$values): bool;
 
 }

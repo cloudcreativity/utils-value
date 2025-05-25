@@ -36,5 +36,8 @@ jobs:
         max_attempts: 5
         command: composer up --no-suggest --prefer-dist -n -o
 
+    - name : Run static analysis
+      run: composer run static
+
     - name: Execute tests
-      run: vendor/bin/phpunit
+      run: composer run test
