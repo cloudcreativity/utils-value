@@ -9,7 +9,11 @@ All notable changes to this project will be documented in this file. This projec
 
 - Minimum PHP version is now 8.2.
 - Added generics to the value interface, abstract class and trait. This will be breaking if you are running PHPStan.
-- **BREAKING**: The abstract value and value trait are now both readonly. This is because value objects should always be immutable.
+- **BREAKING**: The abstract value and value trait are now both readonly. This is because value objects should always be
+  immutable.
+- **BREAKING**: The abstract value constructor is now final. If you need to parse the provided value before it is
+  accepted, overload the `parse()` method in your class. Alternatively, don't extend the `AbstractValue` and use the
+  `ValueTrait` instead.
 
 ## [2.2.0] - 2022-03-04
 
@@ -51,10 +55,10 @@ This package now requires PHP 7.1 or above.
 ## Added
 
 - The following methods have been added to value objects:
-  - `toString` for fluently casting the object to a string.
-  - `isAny` to check if the value is one of any number of provided values.
-  - `isEmpty` to check if the value is empty.
-  - `isNotEmpty` to check if the value is not empty.
+    - `toString` for fluently casting the object to a string.
+    - `isAny` to check if the value is one of any number of provided values.
+    - `isEmpty` to check if the value is empty.
+    - `isNotEmpty` to check if the value is not empty.
 
 ## Deprecated
 
@@ -65,8 +69,8 @@ This package now requires PHP 7.1 or above.
 ### Added
 
 - The following static methods have been added to both abstract classes:
-  - `create` which is a fluent constructor.
-  - `cast` which ensures the provided value is an instance of `static`.
+    - `create` which is a fluent constructor.
+    - `cast` which ensures the provided value is an instance of `static`.
 
 ## [1.0.0] - 2017-01-30
 

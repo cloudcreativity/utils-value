@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace CloudCreativity\Utils\Value\Tests\Unit;
 
+use CloudCreativity\Utils\Value\Tests\IntegerMultiplierValue;
 use CloudCreativity\Utils\Value\Tests\IntegerValue;
 use CloudCreativity\Utils\Value\Tests\StringValue;
 use CloudCreativity\Utils\Value\ValueException;
@@ -113,5 +114,12 @@ class ValueTest extends TestCase
 
         $this->assertTrue($value->isNotEmpty());
         $this->assertFalse($value->isEmpty());
+    }
+
+    public function testItCanSetParser(): void
+    {
+        $value = new IntegerMultiplierValue(2);
+
+        $this->assertSame(20, $value->get());
     }
 }
