@@ -106,7 +106,7 @@ abstract readonly class AbstractValue implements ValueInterface
      * @param mixed $value
      * @throws ValueException
      */
-    public function __construct(mixed $value)
+    final public function __construct(mixed $value)
     {
         if ($this->notAcceptable($value)) {
             throw new ValueException('Expecting a valid value.');

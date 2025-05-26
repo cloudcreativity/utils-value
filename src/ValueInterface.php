@@ -21,8 +21,6 @@ use Stringable;
  */
 interface ValueInterface extends JsonSerializable, Stringable
 {
-    public function __construct(mixed $value);
-
     /**
      * Fluent string method.
      *
