@@ -17,8 +17,13 @@ use CloudCreativity\Utils\Value\AbstractValue;
 /**
  * @extends AbstractValue<int>
  */
-final readonly class IntegerValue extends AbstractValue
+final readonly class IntegerMultiplierValue extends AbstractValue
 {
+    protected function parse(mixed $value): mixed
+    {
+        return is_int($value) ? $value * 10 : $value;
+    }
+
     protected function accept(mixed $value): bool
     {
         return is_int($value);
