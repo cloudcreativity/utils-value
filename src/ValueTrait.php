@@ -52,10 +52,8 @@ trait ValueTrait
 
     /**
      * Is the value any of the provided values?
-     *
-     * @param  mixed  ...$values
      */
-    public function is(...$values): bool
+    public function is(mixed ...$values): bool
     {
         if (count($values) === 0) {
             throw new BadMethodCallException('Values must be provided.');

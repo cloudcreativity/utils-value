@@ -23,8 +23,6 @@ interface ValueInterface extends JsonSerializable, Stringable
 {
     /**
      * Fluent string method.
-     *
-     * @return string
      */
     public function toString(): string;
 
@@ -36,8 +34,6 @@ interface ValueInterface extends JsonSerializable, Stringable
     /**
      * Is the value any of the provided values?
      *
-     * @param mixed ...$values
-     * @return bool
      * @throws BadMethodCallException if invoked without any values.
      */
     public function is(mixed ...$values): bool;

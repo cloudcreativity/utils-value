@@ -23,17 +23,11 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Is the supplied scalar value acceptable for this value class?
-     *
-     * @param mixed $value
-     * @return bool
      */
     abstract protected function accept(mixed $value): bool;
 
     /**
      * Fluent constructor.
-     *
-     * @param mixed $value
-     * @return static
      */
     public static function create(mixed $value): static
     {
@@ -42,9 +36,6 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Create a value.
-     *
-     * @param mixed $value
-     * @return static
      */
     public static function from(mixed $value): static
     {
@@ -57,9 +48,6 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Create a value if it is acceptable, otherwise return null.
-     *
-     * @param mixed $value
-     * @return static|null
      */
     public static function tryFrom(mixed $value): ?static
     {
@@ -76,9 +64,6 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Backward compatibility method for casting values.
-     *
-     * @param mixed $value
-     * @return static
      */
     public static function cast(mixed $value): static
     {
@@ -89,7 +74,6 @@ abstract readonly class AbstractValue implements ValueInterface
      * Cast the provided value if it is not null.
      *
      * @param mixed|null $value
-     * @return static|null
      */
     public static function nullable(mixed $value): ?static
     {
@@ -103,7 +87,6 @@ abstract readonly class AbstractValue implements ValueInterface
     /**
      * AbstractValue constructor.
      *
-     * @param mixed $value
      * @throws ValueException
      */
     final public function __construct(mixed $value)
@@ -119,9 +102,6 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Allow the value to be parsed before it is accepted.
-     *
-     * @param mixed $value
-     * @return mixed
      */
     protected function parse(mixed $value): mixed
     {
@@ -130,9 +110,6 @@ abstract readonly class AbstractValue implements ValueInterface
 
     /**
      * Is the value not acceptable?
-     *
-     * @param mixed $value
-     * @return bool
      */
     protected function notAcceptable(mixed $value): bool
     {
